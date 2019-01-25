@@ -22,14 +22,13 @@ public class DemoSiteTest {
 	
 	@BeforeClass
 	public static void reportBuilder() {
-	extent =new ExtentReports("C:\\Users\\Administrator\\Documents\\.html",true);
+	extent =new ExtentReports(Constants.REPORT1,true);
 	}
 	
 	WebDriver driver;
 	@Before
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Administrator\\eclipse-workspace\\SeleniumExamples-master\\WebDrivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 	}
@@ -40,7 +39,7 @@ public class DemoSiteTest {
 		test = extent.startTest("Check Add User and Login Functionality");
 		
 		//Takes to Home Page
-		driver.get(Constants.HomePage);
+		driver.get(Constants.HOMEPAGE);
 		
 		//Clicks on Add a User
 		driver.findElement(By.xpath("/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/p/small/a[3]")).click();
